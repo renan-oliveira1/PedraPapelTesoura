@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha a sua opção"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/imageview_paper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_selection"
+        app:layout_constraintRight_toLeftOf="@id/imageview_rock"
+        android:src="@mipmap/papel"/>
+
+    <ImageView
+        android:id="@+id/imageview_rock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/imageview_paper"
+        app:layout_constraintRight_toLeftOf="@id/imageview_scissor"
+        app:layout_constraintTop_toBottomOf="@id/textview_selection"
+        android:src="@mipmap/pedra"/>
+
+    <ImageView
+        android:id="@+id/imageview_scissor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/imageview_rock"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_selection"
+        android:src="@mipmap/tesoura"/>
+
+
+    <TextView
+        android:id="@+id/textview_your_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sua opção: "
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview_paper"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/textview_player_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="None"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/textview_your_choice"
+        app:layout_constraintTop_toBottomOf="@id/imageview_paper"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_your_choice"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="Jogar"/>
+
+    <ImageView
+        android:id="@+id/imageview_result_game_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_play"
+        app:layout_constraintRight_toLeftOf="@id/imageview_result_game_machine1"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/textview_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/imageview_result_game_player"
+        app:layout_constraintRight_toLeftOf="@id/imageview_result_game_machine1"
+        app:layout_constraintTop_toTopOf="@id/imageview_result_game_player"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageview_result_game_machine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_play"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/imageview_result_game_player"
+        android:layout_marginTop="100dp" />
+
+    <ImageView
+        android:id="@+id/imageview_result_game_machine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageview_result_game_machine1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/textview_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_result_game_machine2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
