@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import ifsp.edu.br.pedrapapeltesoura.controller.GameController
 import ifsp.edu.br.pedrapapeltesoura.databinding.ActivityMainBinding
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -19,26 +20,33 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private lateinit var activitySettingsResultLauncher: ActivityResultLauncher<Intent>
+//    private lateinit var activitySettingsResultLauncher: ActivityResultLauncher<Intent>
 
     private var playerGameChoice: String? = null
 
-    private var numberPlayers: Int = 2
+    private val controller: GameController by lazy{
+        GameController(this.application)
+    }
+
+    private val numberPlayers: Int by lazy{
+        controller.getGameSettings()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(acvitityMainBinding.root)
 
-        activitySettingsResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
-            if(result.resultCode == RESULT_OK){
-                if(result.data != null){
-                    val configResult = result.data!!.extras?.getInt(Constants.ACTIVITY_RESULT.NUMBER_PLAYERS)
-                    if (configResult != null) {
-                        numberPlayers = configResult
-                    }
-                }
-            }
-        }
+
+//        activitySettingsResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
+//            if(result.resultCode == RESULT_OK){
+//                if(result.data != null){
+//                    val configResult = result.data!!.extras?.getInt(Constants.ACTIVITY_RESULT.NUMBER_PLAYERS)
+//                    if (configResult != null) {
+//                        numberPlayers = configResult
+//                    }
+//                }
+//            }
+//        }
 
         dealWithImageClick()
 
@@ -192,8 +200,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.menu_settings){
-            val settingsIntent = Intent(this, SettingsActivity::class.java)
-            activitySettingsResultLauncher.launch(settingsIntent)
+//            val settingsIntent = Intent(this, SettingsActivity::class.java)
+//            activitySettingsResultLauncher.launch(settingsIntent)
+            val intent = Intent(applicationContext, SettingsActivity::class.java)
+            startActivity(intent)
         }
         return true
     }
